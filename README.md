@@ -25,27 +25,58 @@ transmitter gain, receiver gain, radar frequency, radar cross section, and minim
 6. Execute the Program: Run the Python script to calculate and display the maximum range of the radar.
 
 
-   ___Algorithm__:
+ __Program__:
+```
+clc
+clear;
+close;
+
+Pt = 1000;
+G = 40;
+lambda = 0.05;
+sigma = 10;
+pi4 = (4*%pi)^3;
+
+R = linspace(1e3, 200e3, 500);
+Pr_R = (Pt .* G^2 .* lambda^2 .* sigma) ./ (pi4 .* R.^4);
+figure(1);
+Pr_R_dB = 10 .* log10(Pr_R);
+plot(R/1000, Pr_R_dB);
+xlabel("Power Received");
+ylabel("Range");
+
+Pt_values = linspace(100, 10000, 500);
+R_fixed = 50e3;
+Pr_Pt = (Pt_values .* G^2 .* lambda^2 .* sigma) ./ (pi4 .* R_fixed.^4);
+figure(2);
+plot(Pt_values, Pr_Pt);
+xlabel("Power Received");
+ylabel("Power Transmitted");
+
+G_values = linspace(5, 60, 500);
+Pt_fixed = 3000;
+Pr_G = (Pt_fixed .* G_values.^2 .* lambda^2 .* sigma) ./ (pi4 .* R_fixed.^4);
+figure(3);
+plot(G_values, Pr_G);
+xlabel("Power Received");
+ylabel("Gain");
+
+```
+
+
+__Output__:
    
+<img width="753" height="626" alt="image" src="https://github.com/user-attachments/assets/626455b5-d81d-44a4-ac2f-f037aeb98502" />
+
+<img width="758" height="602" alt="image" src="https://github.com/user-attachments/assets/9bc778b4-30a7-4ba1-ac90-b20b463187bc" />
+
+<img width="759" height="602" alt="image" src="https://github.com/user-attachments/assets/2ae12517-c6b4-4d0b-9a5d-98a9fdc220bf" />
 
 
 
-
-
-
-
-   __Output__:
+__Result__:
    
-
-
-
-
-
-
-
-   __Result__:
-   
-
+Thus, The Output is verified and Executed Successfully
 
 
 
