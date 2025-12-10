@@ -75,9 +75,9 @@ __Output__:
 
 
 __Result__:
+thus,To calculate the maximum range of a radar system using the Radar Range Equation and verify the results 
+through Python programming.
    
-![image](https://github.com/user-attachments/assets/55bda45d-cc6b-44eb-bcaf-8d99436715bd)
-
 
 
 
